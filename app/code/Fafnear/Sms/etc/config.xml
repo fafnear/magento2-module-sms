@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <default>
+        <fafnear_sms>
+            <general>
+                <getaway>log</getaway>
+                <enabled>0</enabled>
+                <log_filename>sms.log</log_filename>
+                <recipients><![CDATA[]]></recipients>
+            </general>
+            <templates>
+                <checkout_submit_all_after_enabled>0</checkout_submit_all_after_enabled>
+                <checkout_submit_all_after_template><![CDATA[Thanks {{var order.customer_firstname }}. We'll notify you when it ships. View order {{var order.increment_id }}]]></checkout_submit_all_after_template>
+                <customer_login_enabled>0</customer_login_enabled>
+                <customer_login_template><![CDATA[{{var customer.firstname }}, you have successfully logged in {{config path='' }}]]></customer_login_template>
+                <sales_order_shipment_track_save_after_enabled>0</sales_order_shipment_track_save_after_enabled>
+                <sales_order_shipment_track_save_after_template><![CDATA[Dear {{var order.customer_firstname }}, your order №{{var order.increment_id}} is on delivery by {{var track.title }} with №{{var track.track_number }} tracking number ]]></sales_order_shipment_track_save_after_template>
+            </templates>
+        </fafnear_sms>
+    </default>
+</config>

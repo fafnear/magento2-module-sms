@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="fafnear_sms" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>fafnear</tab>
+            <label>SMS</label>
+            <resource>Fafnear_Sms::config</resource>
+            <group id="general" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="getaway" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Getaway</label>
+                    <source_model>Fafnear\Sms\Model\Config\Source\Getaway</source_model>
+                </field>
+                <field id="recipients" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Recipient emails</label>
+                    <comment>comma separated</comment>
+                </field>
+            </group>
+            <group id="templates" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Templates</label>
+                <field id="checkout_submit_all_after_heading" translate="label" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>New Order Confirmation</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="checkout_submit_all_after_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="checkout_submit_all_after_template" translate="label" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Template</label>
+                    <comment><![CDATA[{{var order.increment_id }}, {{var order.customer_firstname }}]]></comment>
+                </field>
+
+                <field id="customer_login_heading" translate="label" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Customer Login</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="customer_login_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_login_template" translate="label" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Template</label>
+                    <comment><![CDATA[{{var customer.firstname }}, {{var customer.lastname }}, {{var customer.email }}]]></comment>
+                </field>
+
+                <field id="sales_order_shipment_track_save_after_heading" translate="label" showInStore="1" showInWebsite="1" showInDefault="1">
+                    <label>Shipment Tracking Number Added</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="sales_order_shipment_track_save_after_enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sales_order_shipment_track_save_after_template" translate="label" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Template</label>
+                    <comment><![CDATA[{{var track.track_number }}, {{var track.description }}, {{var track.title }}, {{var order.customer_firstname }}, {{var shipment }}]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

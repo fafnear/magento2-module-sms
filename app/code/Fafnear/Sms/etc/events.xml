@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_submit_all_after">
+        <observer name="fafnear_sms_checkout_submit_all_after" instance="Fafnear\Sms\Observer\CheckoutSubmitAllAfter"/>
+    </event>
+    <event name="customer_login">
+        <observer name="fafnear_sms_customer_login_observer" instance="Fafnear\Sms\Observer\CustomerLogin" />
+    </event>
+    <event name="sales_order_shipment_track_save_after">
+        <observer name="fafnear_sms_sales_order_shipment_track_save_after_observer" instance="Fafnear\Sms\Observer\ShipmentTrackSaveAfter" />
+    </event>
+    <event name="fafnear_sms_status_not_enough_money">
+        <observer name="fafnear_sms_status_not_enough_money_observer" instance="Fafnear\Sms\Observer\NotifyOutOfMoney" />
+    </event>
+</config>

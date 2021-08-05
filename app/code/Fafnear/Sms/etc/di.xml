@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Fafnear\Sms\Api\Getaway" type="Fafnear\Sms\Model\Getaway" />
+    <preference for="Fafnear\Sms\Api\Message" type="Fafnear\Sms\Model\Message" />
+
+    <type name="Fafnear\Sms\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Fafnear\Sms\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">fafnear_sms</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Fafnear\Sms\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Fafnear\Sms\Model\Getaway\Adapter\Log">
+        <arguments>
+            <argument name="response" xsi:type="object">Fafnear\Sms\Model\Getaway\Response\Logging</argument>
+        </arguments>
+    </type>
+    <type name="Fafnear\Sms\Model\Getaway">
+        <arguments>
+            <argument name="response" xsi:type="object">Fafnear\Sms\Model\Getaway\Response\SendingDisabled</argument>
+        </arguments>
+    </type>
+    <type name="Fafnear\Sms\Service\AdaptersCollector">
+        <arguments>
+            <argument name="adapters" xsi:type="array">
+                <item name="log" xsi:type="object">Fafnear\Sms\Model\Getaway\Adapter\Log</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
